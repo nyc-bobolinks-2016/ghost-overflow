@@ -8,7 +8,15 @@ get '/questions/new' do
 end
 
 post '/questions' do
-  @question = Question.new(params[:question])
+  if logged_in?
+    @question = Question.new(params[:question])
+    @question.user_id = logged_in_user.id
+    p '*'*100
+    p @question
+    p session
+  else
+    @errors = ['Youre not logged in']
+  end
   if @question.save
     redirect '/questions'
   else

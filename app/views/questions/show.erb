@@ -1,3 +1,5 @@
-<h1> The title of the question would go here </h1>
+<h1> <%=@question.title%> </h1>
 
 <p> <%=@question.content%> </p>
+
+<p>  Posted by <%= @question.user.full_name %> at <%=@question.created_at %></p>
