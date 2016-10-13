@@ -18,9 +18,18 @@
   <title></title>
 </head>
 <body>
-  <a href="/">Home |</a>
-  <a href="/login">Login |</a>
-  <a href="/logout">Logout |</a>
+  <div id='home_bar'>
+    <a href="/">Home |</a>
+      <% if logged_in? %>
+        <a href="/logout">Logout |</a>
+        <div class="current_user">
+          <p> Currently logged in as <%= logged_in_user.full_name %> </p>
+        </div>
+      <% else %>
+        <a href="/login">Login |</a>
+        <a href="/users/new">Register |</a>
+      <% end %>
+  </div>
   <%= yield %>
 </body>
 </html>
