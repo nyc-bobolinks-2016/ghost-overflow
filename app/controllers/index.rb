@@ -1,7 +1,7 @@
 get '/' do
-p '*'*1000
-p session
-erb :index
+  p '*'*1000
+  p session
+  erb :index
 end
 
 get '/login' do
