@@ -1,6 +1,6 @@
 get '/questions' do
   @questions = Question.all
-  erb :'questions/questions'
+  erb :'questions/index'
 end
 
 get '/questions/new' do
@@ -17,5 +17,6 @@ post '/questions' do
 end
 
 get '/questions/:id' do
-  @question = Question.where("questions_id = ?", params[:id])
+  @question = Question.find_by(id: params[:id])
+  erb :'questions/show'
 end
