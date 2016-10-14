@@ -11,4 +11,37 @@ $(document).ready(function() {
        alert(errorThrown)
     })
   })
+
+
+
+  $('.new_answer').on('click', function(event){
+    event.preventDefault();
+    var $post = $(this)
+    $.ajax({
+      url: '/answers/new',
+      method: 'get'
+    }).done(function(response){
+      $(response).appendTo($post)
+    })
+  })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 });

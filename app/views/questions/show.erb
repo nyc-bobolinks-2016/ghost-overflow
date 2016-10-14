@@ -1,12 +1,10 @@
 <div class='container'>
   <h1> <%=@question.title%> </h1>
-
   <p> <%=@question.content%> </p>
-
-
   <p>  Posted by <%= @question.user.full_name %> at <%=@question.created_at %></p>
 
- <a href="/answers/new">Answer this Question Bitch</a><br>
+ <a class="new_answer" href="/answers/new">Answer this Question Bitch</a><br>
+ 
  <a href="/comments/new">Place ASK comment here</a>
 
 
