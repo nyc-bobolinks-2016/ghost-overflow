@@ -1,13 +1,19 @@
 <div class='container'>
   <h1> <%=@question.title%> </h1>
-
   <p> <%=@question.content%> </p>
-
-
   <p>  Posted by <%= @question.user.full_name %> at <%=@question.created_at %></p>
-
- <a href="/answers/new">Answer this Question Bitch</a><br>
- <a href="/comments/new">Place ASK comment here</a>
-
-
-<div>
+  <a href="/answers/new">Answer this Question Bitch</a><br>
+  <div class="comments_on_questions">
+    <form class='new_comment_button' action="/questions/<%=@question.id %>/comments/new" method="get">
+      <input type="submit" name="new_comment" value="New Comment">
+    </form>
+    <div class="new_comment_form">
+      <!-- <%= erb :'/_new_comments', layout: false, locals: { question: @question } %> -->
+    </div>
+    <div class="comments_container">
+     <% @question.comments.each do |comment| %>
+      <%= erb :'_comments', layout: false, locals: { comment: comment } %>
+     <% end %>
+   </div>
+ </div>
+</div>
