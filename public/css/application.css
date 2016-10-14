@@ -1,3 +1,8 @@
+body {
+  font-family: helvetica;
+  display: flex;
+}
+
 div#login {
     margin: auto;
     width: 50%;
@@ -5,6 +10,30 @@ div#login {
     padding: 10px;
 }
 
+div#questions {
+  border-bottom: .5px solid black;
+  padding: 20px;
+  color: #ccebff;
+  underline: false;
+}
+
 #login-form {
 
 };
+
+a:hover {
+  color: #ccebff;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+input[type=text]:focus {
+    background-color: #ccebff;
+}
+
+
