@@ -9,12 +9,12 @@ end
 
 post '/users/new' do
   @user = User.new(params)
-  if @user.save
-    redirect '/'
-  else
-    puts 'ERRORS DETECTED! DETAILS TO FOLLOW:'
-    @user.errors.full_messages.each do |error|
-      puts error
+  if request.xhr?
+    if @user.save
+      redirect '/'
+    else
+      status 422
+      JSON.generate(@user.errors.full_messages)
     end
   end
 end
