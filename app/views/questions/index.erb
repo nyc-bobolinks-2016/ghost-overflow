@@ -1,6 +1,12 @@
-<h1> Questions </h1>
+<div class='container'>
+<div class="questions">
 
-<% @questions.each do |question| %>
-  <p> <a href="/questions/<%=question.id%>"><%=question.title%></a> </p>
-  <p>  Posted by <%= question.user.full_name %></p>
-<%end %>
+  <h1> Questions </h1>
+
+  <% @questions.each do |question| %>
+    <p> <a href="/questions/<%=question.id%>"><%=question.title%></a> </p>
+    <p>  Posted by <%= question.user.full_name %></p>
+  <%end %>
+
+</div>
+</div>

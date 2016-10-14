@@ -4,16 +4,18 @@ get '/questions' do
 end
 
 get '/questions/new' do
-  erb :'questions/new'
+  if logged_in?
+    erb :'questions/new'
+  else
+    @errors = ['You need to login first!']
+    redirect '/login'
+  end
 end
 
 post '/questions' do
   if logged_in?
     @question = Question.new(params[:question])
     @question.user_id = logged_in_user.id
-    p '*'*100
-    p @question
-    p session
   else
     @errors = ['Youre not logged in']
   end
