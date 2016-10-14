@@ -13,7 +13,6 @@ $(document).ready(function() {
   })
 
 
-
   $('.new_answer').on('click', function(event){
     event.preventDefault();
     var $post = $(this)
@@ -25,7 +24,17 @@ $(document).ready(function() {
     })
   })
 
-
+$(document).on('submit', '#answer_form', function(event){
+  event.preventDefault();
+  $.ajax({
+    url: '/answers',
+    method: 'post',
+    data: $(this).serialize()
+  }).done(function(response){
+    console.log(response)
+    $(response).appendTo('#new_form_container')
+  });
+})
 
 
 

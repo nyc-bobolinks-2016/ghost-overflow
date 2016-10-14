@@ -1,4 +1,4 @@
-get '/answers/_show' do
+get '/answers' do
   "ANSWERS VIEW I GUESS"
 end
 
@@ -12,9 +12,12 @@ end
 
 post '/answers' do
   if logged_in?
-    @answer = Answer.new(params[:question])
+    p '*******************************************'
+    p params
+    p '*******************************************'
+    @answer = Answer.new(params[:answer])
     @answer.save
-    redirect '/answers/_show'
+    erb :'/answers/index', layout: false, locals:{answer: @answer}
   else
     "HEY THAT DIDNT SAVE"
   end

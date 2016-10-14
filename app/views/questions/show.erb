@@ -4,10 +4,9 @@
   <p>  Posted by <%= @question.user.full_name %> at <%=@question.created_at %></p>
 
 <form action="/answers/new" method="post">
-<button  class="new_answer" type="button"> Post Answer</button>
+<button class="new_answer" type="button"> Post Answer</button>
 </form>
 <div id="new_form_container"> </div>
  <a href="/comments/new">Place ASK comment here</a>
 
-
-<div>
+<div class="answer-append"> </div>
