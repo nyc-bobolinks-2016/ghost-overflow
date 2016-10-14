@@ -3,8 +3,10 @@
   <p> <%=@question.content%> </p>
   <p>  Posted by <%= @question.user.full_name %> at <%=@question.created_at %></p>
 
- <a class="new_answer" href="/answers/new">Answer this Question Bitch</a><br>
- 
+<form action="/answers/new" method="post">
+<button  class="new_answer" type="button"> Post Answer</button>
+</form>
+<div id="new_form_container"> </div>
  <a href="/comments/new">Place ASK comment here</a>
 
 

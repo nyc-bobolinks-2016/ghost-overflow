@@ -21,7 +21,7 @@ $(document).ready(function() {
       url: '/answers/new',
       method: 'get'
     }).done(function(response){
-      $(response).appendTo($post)
+      $(response).appendTo("#new_form_container")
     })
   })
 
