@@ -1,0 +1,12 @@
+<div class="container">
+  <form class="comments" action="/questions/<%=@question.id%>/comments/new" method="post">
+    <input type="textarea" name="comment[content]" placeholder="Your Comment Here">
+    <input type="submit" name="submit" value="submit">
+    <button id='cancel_comment_button'>cancel</button>
+  </form>
+</div>
+
+<!-- <form class="comments" action="answer/1/comments" method="post">
+  <input type="textarea" name="comment[content]" placeholder="Your Comment Here">
+  <input type="submit" name="submit" value="Submit">
+</form> -->
