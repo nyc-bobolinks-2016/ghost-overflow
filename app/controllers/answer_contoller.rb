@@ -1,24 +1,26 @@
-get '/answers' do
-  "ANSWERS VIEW I GUESS"
-end
-
-get '/answers/new' do
+get '/questions/:id/answers/new' do
+  @question = Question.find(params[:id])
   if request.xhr?
-    erb :'/answers/new', layout: false
+    erb :'/answers/new', layout: false, locals: { question: @question}
   else
     erb :'/answers/new'
   end
 end
 
-post '/answers' do
+post '/questions/:id/answers/new' do
   if logged_in?
-    p '*******************************************'
-    p params
-    p '*******************************************'
     @answer = Answer.new(params[:answer])
+    @answer.user_id = logged_in_user.id
+    @answer.question_id = params[:id]
     @answer.save
     erb :'/answers/index', layout: false, locals:{answer: @answer}
   else
     "HEY THAT DIDNT SAVE"
   end
+end
+
+get '/answer/:id/delete' do
+  @answer = Answer.find(params[:id])
+  @answer.destroy
+  redirect "/questions"
 end

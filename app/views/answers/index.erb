@@ -1,5 +1,11 @@
-<div class='container'>
+<!-- <div class='container'>
 <h1> Question's ASNWERSDS</h1>
 <h2> <%=answer.title%> </h2>
 <p> <%=answer.content%> </p>
+</div> -->
+
+<div class='answer_list_item'>
+  <h4><%= answer.title %></h4>
+  <%= answer.content %>
+  <%= answer.user.full_name %>
 </div>
