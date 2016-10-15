@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
   $('#registration_form').submit(function(event){
     event.preventDefault()
     $.ajax({
@@ -37,8 +38,6 @@ $(document).ready(function() {
     });
   })
 
-
-
   $('.new_comment_button').submit(function(){
     event.preventDefault();
     var route = $(this).attr('action');
@@ -51,7 +50,6 @@ $(document).ready(function() {
       $parent.find('.new_comment_button').hide();
     })
   })
-
 
   $(".new_comment_form").submit(function(){
     event.preventDefault();
@@ -78,7 +76,5 @@ $(document).ready(function() {
       $listItemToDelete.remove()
     })
   })
-
-
 
 });

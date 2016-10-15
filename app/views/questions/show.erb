@@ -28,21 +28,8 @@
    </div>
 
    <div class="answer_append">
-         <% @question.answers.each do |answer| %>
-       <div class='answer_list_item'>
-         <b><%= answer.title %></b><br>
-         <%= answer.content %>
-         - <%= answer.user.full_name %>
-         <%if logged_in?%>
-            <%if logged_in_user == answer.user%>
-              (<a class = 'delete_answer' href="/answer/<%=answer.id %>/delete">delete</a>)
-            <%end%>
-         <%end%>
-         <br><br>
-       </div>
-     <%end %>
-
+      <% @question.answers.each do |answer| %>
+        <%= erb :'/answers/index', layout: false, locals: { answer: answer }%>
+      <%end %>
    </div>
-
-
 </div>

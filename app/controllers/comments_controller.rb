@@ -31,3 +31,12 @@ get '/comments/:id/delete' do
   end
   redirect "/questions/#{@question_id}"
 end
+
+get '/answers/:id/comments/new' do
+  @answer = Answer.find(params[:id])
+  if request.xhr?
+    erb :'_new_answer_comments', layout: false, locals: {answer: @answer}
+  else
+    erb :'_new_answer_comments'
+  end
+end
