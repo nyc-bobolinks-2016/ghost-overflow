@@ -24,9 +24,10 @@
     <a href="/">Home |</a>
     <a href="/questions">Questions |</a>
       <% if logged_in? %>
+        <a href="/questions/new">Ask a Question |</a>
         <a href="/logout">Logout |</a>
-        <div class="current_user">
-          <p> Currently logged in as <%= logged_in_user.full_name %> </p>
+        <div id="user_tag" class="current_user">
+      <p> Currently logged in as <%= logged_in_user.full_name %> </p>
         </div>
       <% else %>
         <a href="/login">Login |</a>
