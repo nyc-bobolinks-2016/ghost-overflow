@@ -6,6 +6,7 @@ body {
 
 .container {
     margin: auto;
+    margin-top: 50px;
     display: block;
     width: 50%;
     border: 1px solid gray;
@@ -22,6 +23,11 @@ div#questions {
 a:visited {
     color: #73e600;
 }
+
+a {
+    color: #73e600;
+}
+
 a:hover {
   color: #ccebff;
 }
