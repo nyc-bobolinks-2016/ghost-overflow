@@ -1,9 +1,10 @@
 <div class="container">
-<div class="answer-container">
-<form id = "answer_form" action="/questions/<%=@question.id%>/answers/new" method="post">
-  <input type="test" name="answer[title]" placeholder="Title">
-  <input type="text" name="answer[content]" placeholder="Answer">
-  <input  id="answer-button" type="submit" value="Answer It!">
-</form>
-</div>
+  <div class="answer-container">
+    <form id = "answer_form" action="/questions/<%=@question.id%>/answers/new" method="post">
+      <input type="test" name="answer[title]" placeholder="Title"><br>
+      <input type="text" name="answer[content]" placeholder="Answer"><br><br>
+      <input  id = "answer_button" type="submit" name='submit' value="Answer It!">
+      <button id = "cancel_answer_button">cancel</button>
+    </form>
+  </div>
 </div>
