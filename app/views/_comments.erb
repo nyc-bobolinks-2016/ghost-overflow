@@ -1,6 +1,8 @@
-<p><%=comment.content%> - <%=comment.user.full_name%>
-<%if logged_in?%>
-  <%if logged_in_user == comment.user%>
-    (<a href="/comments/<%= comment.id %>/delete">delete</a>)</p>
+<div class = "individual_comment">
+  <p><%=comment.content%> - <%=comment.user.full_name%>
+  <%if logged_in?%>
+    <%if logged_in_user == comment.user%>
+      <a class = 'delete_item'href="/comments/<%= comment.id %>/delete">delete</a></p>
+    <%end%>
   <%end%>
-<%end%>
+</div>
