@@ -77,11 +77,12 @@ $(document).ready(function() {
   })
 
   $(".new_comment_form").on('click', '#cancel_comment_button', function(event){
+    event.preventDefault();
     $(this).parent().parent().parent().empty();
     $(".comments_on_questions").find('.new_comment_button').show();
   })
 
-  $(".comment_on_answer_button").click(function(event){
+  $(".answers_to_questions").on('click', '.comment_on_answer_button', function(event){
     $(this).hide()
     $(this).parent().find('.comment_on_answer_form').show()
   })
@@ -108,7 +109,7 @@ $(document).ready(function() {
     })
   })
 
-  $(".delete_answer").click(function(event){
+  $(".answers_to_questions").on("click", ".delete_answer", function(event){
     event.preventDefault()
     $answerListItemToDelete = $(this).parent()
     var route = $(this).attr('href')
