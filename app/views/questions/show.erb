@@ -27,8 +27,7 @@
 
  <div class="answers_to_questions">
    <h3>Answers</h3>
-   <div id="new_form_container">
-   </div>
+   <div id="new_form_container"></div>
    <div class="answer_append">
       <% @question.answers.each do |answer| %>
         <%= erb :'/answers/index', layout: false, locals: { answer: answer }%>

@@ -10,7 +10,7 @@ end
 post '/questions/:id/comments/new' do
   @comment = Comment.new(params[:comment])
   @comment.user = logged_in_user
-  @question = Question.find_by(id: params[:id])
+  @question = Question.find(params[:id])
   @comment.commentable = @question
   @comment.save
   if request.xhr?
