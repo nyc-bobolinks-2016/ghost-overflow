@@ -1,35 +1,38 @@
+
 <div class='container'>
   <h1> <%=@question.title%> </h1>
   <h3> <%=@question.content%> </h3>
   <p>  Posted by <%= @question.user.full_name %> at <%=@question.created_at %></p>
 
   <div class="comments_on_questions">
+    <% if logged_in? %>
+      <form class='new_comment_button inline_block'  action="/questions/<%=@question.id %>/comments/new" method="get">
+        <input type="submit" name="new_comment" value="New Comment">
+      </form>
 
-    <form class='new_comment_button inline_block'  action="/questions/<%=@question.id %>/comments/new" method="get">
-      <input type="submit" name="new_comment" value="New Comment">
-    </form>
+      <form class="inline_block" action="/questions/<%=@question.id%>/answers/new" method="post">
+        <button class="new_answer" type="button"> Post Answer</button>
+      </form>
+    <% end %>
 
-    <form class="inline_block" action="/questions/<%=@question.id%>/answers/new" method="post">
-      <button class="new_answer" type="button"> Post Answer</button>
-    </form>
+    <div class="new_comment_form"></div>
 
-    <div class="new_comment_form">
-    </div>
     <div class="comments_container">
       <h4>Comments</h4>
-     <% @question.comments.each do |comment| %>
-      <%= erb :'_comments', layout: false, locals: { comment: comment } %>
+      <% @question.comments.each do |comment| %>
+        <%= erb :'_comments', layout: false, locals: { comment: comment } %>
      <% end %>
    </div>
  </div>
+
  <div class="answers_to_questions">
-    <h3>Answers</h3>
+   <h3>Answers</h3>
    <div id="new_form_container">
    </div>
-
    <div class="answer_append">
       <% @question.answers.each do |answer| %>
         <%= erb :'/answers/index', layout: false, locals: { answer: answer }%>
       <%end %>
    </div>
+ </div>
 </div>

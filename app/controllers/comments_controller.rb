@@ -13,7 +13,6 @@ post '/questions/:id/comments/new' do
   @question = Question.find_by(id: params[:id])
   @comment.commentable = @question
   @comment.save
-  p @comment.errors.full_messages
   if request.xhr?
     erb :'/_comments', layout: false, locals: { comment: @comment }
   else
@@ -29,7 +28,6 @@ get '/comments/:id/delete' do
   else
     @errors = ["NAh"]
   end
-  redirect "/questions/#{@question_id}"
 end
 
 get '/answers/:id/comments/new' do
@@ -38,5 +36,18 @@ get '/answers/:id/comments/new' do
     erb :'_new_answer_comments', layout: false, locals: {answer: @answer}
   else
     erb :'_new_answer_comments'
+  end
+end
+
+post '/answers/:id/comments/new' do
+  @comment = Comment.new(params[:comment])
+  @comment.user = logged_in_user
+  @answer = Answer.find(params[:id])
+  @comment.commentable = @answer
+  @comment.save
+  if request.xhr?
+    erb :'/_comments', layout: false, locals: { comment: @comment }
+  else
+    redirect "/questions/#{@answer.question_id}"
   end
 end

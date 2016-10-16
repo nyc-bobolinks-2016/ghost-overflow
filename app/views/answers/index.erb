@@ -1,11 +1,26 @@
 <div class='answer_list_item'>
-  <b><%= answer.title %></b><br>
+  <b><%= answer.title %></b>
+
+  <%if logged_in?%>
+
+     <form class="comment_on_answer_form" action="/answers/<%= answer.id %>/comments/new" method="post" style="display: none;">
+       <input type="text" name="comment[content]" placeholder="Type comment here">
+       <input type="submit" name="name" value="submit comment">
+       <button class = "cancel_comment_on_answer">cancel</button>
+     </form>
+     <button class = "comment_on_answer_button" type="button" name="button">comment</button>
+
+     <%if logged_in_user == answer.user%>
+       <a class = 'delete_answer delete_item' href="/answer/<%=answer.id %>/delete">delete</a>
+     <%end%>
+
+  <%end%>
+  <br>
   <%= answer.content %>
-   - <%= answer.user.full_name %>
-   <%if logged_in?%>
-      <%if logged_in_user == answer.user%>
-        (<a class = 'delete_answer' href="/answer/<%=answer.id %>/delete">delete</a>)
-      <%end%>
-   <%end%>
-   <br><br>
-</div>
+   - <%= answer.user.full_name %><br>
+   <div class="comments_on_answers">
+     <% answer.comments.each do |comment| %>
+       <%= erb :'_comments', layout: false, locals: { comment: comment } %>
+    <% end %>
+  </div>
+</div><br>

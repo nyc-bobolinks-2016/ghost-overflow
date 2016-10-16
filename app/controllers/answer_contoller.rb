@@ -21,6 +21,9 @@ end
 
 get '/answer/:id/delete' do
   @answer = Answer.find(params[:id])
+  @answer.comments.each do |comment|
+    p comment.content
+    comment.destroy
+  end
   @answer.destroy
-  redirect "/questions"
 end
