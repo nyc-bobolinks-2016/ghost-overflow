@@ -23,6 +23,11 @@ div#questions {
 a:visited {
     color: #73e600;
 }
+
+a {
+    color: #73e600;
+}
+
 a:hover {
   color: #ccebff;
 }
