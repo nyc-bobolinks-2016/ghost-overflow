@@ -2,6 +2,10 @@ get '/' do
   'success!!'
 end
 
+get '/users/:id' do
+  erb :'/users/profile'
+end
+
 
 get '/users/new' do
   erb :register

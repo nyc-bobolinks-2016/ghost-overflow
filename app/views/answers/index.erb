@@ -12,11 +12,13 @@
      <%end%>
   <%end%>
   <br>
-  <%= answer.content %>
-   - <%= answer.user.full_name %><br>
-   <div class="comments_on_answers">
+  <%= answer.content %><br><br>
+  <div class="question_subtext">
+     - Posted by <a class = "author_name" href="/users/<%=answer.user.id%>"><%=answer.user.full_name%></a> on <%=answer.created_at%><br>
+  </div>
+  <div class="comments_on_answers">
      <% answer.comments.each do |comment| %>
        <%= erb :'_comments', layout: false, locals: { comment: comment } %>
-    <% end %>
+     <% end %>
   </div>
 </div><br>

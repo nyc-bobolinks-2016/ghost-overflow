@@ -1,9 +1,10 @@
 
 <div class='container'>
   <h1> <%=@question.title%> </h1>
-  <h3> <%=@question.content%> </h3>
-  <p>  Posted by <%= @question.user.full_name %> at <%=@question.created_at %></p>
-
+  <p> <%=@question.content%> </p>
+  <div class="question_subtext">
+    <p>  Posted by <a class = "author_name" href="/users/<%=@question.user.id%>"><%=@question.user.full_name%></a> at <%=@question.created_at %></p>
+  </div>
   <div class="comments_on_questions">
     <% if logged_in? %>
       <form class='new_comment_button inline_block'  action="/questions/<%=@question.id %>/comments/new" method="get">
@@ -18,7 +19,7 @@
     <div class="new_comment_form"></div>
 
     <div class="comments_container">
-      <h4>Comments</h4>
+      <h4 id='comments_h'>Comments</h4>
       <% @question.comments.each do |comment| %>
         <%= erb :'_comments', layout: false, locals: { comment: comment } %>
      <% end %>
@@ -26,7 +27,7 @@
  </div>
 
  <div class="answers_to_questions">
-   <h3>Answers</h3>
+   <h3 id="answer_h">Answers</h3>
    <div id="new_form_container"></div>
    <div class="answer_append">
       <% @question.answers.each do |answer| %>
