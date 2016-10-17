@@ -1,0 +1,20 @@
+<div class="container">
+  <%@user = User.find(params[:id])%>
+  <h3><%= @user.full_name %>'s Profile</h3>
+  <div class="question_subtext">
+    Questions: <%=@user.questions.length%>
+    Answers: <%=@user.answers.length%>
+    Comments: <%=@user.comments.length%>
+  </div>
+
+  <h4>Question</h4>
+  <%@user.questions.each do |question|%>
+    <li><a href="/questions/<%=question.id%>"><%=question.title%></a></li>
+  <%end%>
+
+  <h4>Answers</h4>
+  <%@user.answers.each do |answer|%>
+    <li>"<%=answer.title%>" in response to <a href="/questions/<%=answer.question_id%>"><%=answer.question.title%></a></li>
+  <%end%>
+
+</div>

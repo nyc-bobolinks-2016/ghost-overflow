@@ -69,13 +69,8 @@ answer_list_item {
   margin: 5px
 }
 
-/*div.comments_on_questions{
-  margin-left: 15pt;
-  color: #333333;
-}*/
-
-div.comments_on_answers{
-  margin-left: 15pt;
+div.individual_comment{
+  margin-left: 20pt;
   color: #333333;
 }
 
@@ -92,4 +87,28 @@ button.comment_on_answer_button{
   font-size: 8pt;
   color: gray;
   border-bottom: 1px solid gray;
+}
+
+div.question_subtext {
+  margin-top: -15px;
+  font-size: 8pt;
+  color: black;
+}
+
+span.comment_subtext {
+  margin-top: -15px;
+  font-size: 8pt;
+  color: black;
+}
+
+#answer_h{
+  border-bottom: 1px solid black;
+}
+
+#comments_h{
+  border-bottom: 1px solid black;
+}
+
+a.author_name{
+  color: #333333;
 }

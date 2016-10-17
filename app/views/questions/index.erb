@@ -1,14 +1,13 @@
 <div class='container'>
   <div class="questions">
-
     <h1> Questions </h1>
-
     <% @questions.each do |question| %>
-      <p> <a href="/questions/<%=question.id%>"><%=question.title%></a> </p>
-      <p>  Posted by <%= question.user.full_name %></p>
+      <p>
+        <a href="/questions/<%=question.id%>"><%=question.title%></a>
+        <div class="question_subtext">
+          -Posted by <a class = "author_name" href="/users/<%=question.user.id%>"><%=question.user.full_name%></a> on <%=question.created_at%><br>
+        </div>
+      </p>
     <%end %>
-
-    
-
   </div>
 </div>

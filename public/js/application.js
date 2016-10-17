@@ -48,7 +48,7 @@ $(document).ready(function() {
     $('.new_answer').show()
   })
 
-  $('.new_comment_button').submit(function(){
+  $('.new_comment_button').click(function(event){
     event.preventDefault();
     var route = $(this).attr('action');
     var $parent = $(this).parent();
